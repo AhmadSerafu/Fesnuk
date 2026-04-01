@@ -1,0 +1,36 @@
+{
+  "name": "fesnuk",
+  "version": "1.0.0",
+  "description": "daripada ngoding, mending scroll fesnuk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmadSerafu/Fesnuk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AhmadSerafu/Fesnuk/issues"
+  },
+  "homepage": "https://github.com/AhmadSerafu/Fesnuk#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "ejs": "^5.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "multer": "^2.1.1",
+    "pg": "^8.20.0",
+    "postgres": "^3.4.8",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "sequelize-cli": "^6.6.5"
+  }
+}

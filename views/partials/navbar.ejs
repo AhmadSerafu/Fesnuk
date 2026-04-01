@@ -1,0 +1,19 @@
+<nav class="navbar px-4 mb-4 sticky-top bg-black">
+    <a href="/" class="navbar-brand fw-bold fs-2 text-warning text-decoration-none">Fesnuk</a>
+      
+    <% if (username) { %>
+    <div class="d-flex align-items-center gap-3">
+        <a href="/posts/create" class="btn btn-warning btn-sm fw-bold">+ Add Post</a>
+        <% if (currentUser.UserProfile && currentUser.UserProfile.profilePicture) { %>
+            <img src="<%= currentUser.UserProfile.profilePicture %>" 
+             class="rounded-circle" 
+             width="32" height="32" 
+             style="object-fit: cover;"/>
+        <% } %>
+        <span class="text-warning">@<%= username %></span>
+        <a href="/auth/logout" class="btn btn-outline-warning btn-sm">Logout</a>
+    </div>
+     <% } else { %>
+    <a href="/auth/login" class="btn btn-warning btn-sm">Login</a>
+    <% } %>
+</nav>
