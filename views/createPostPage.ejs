@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fesnuk - Create Post</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-dark text-light">
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-5" style="max-width: 600px;">
+      <h1 class="fw-bold display-6 text-warning mb-4">What do you think?</h1>
+
+      <% if (errorMessages) { %>
+        <div class="alert alert-danger text-danger" role="alert">
+         <%= errorMessages %>
+        </div>   
+      <% } %>
+
+      <form action="/posts/create" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label class="form-label">Apa nih judulnya?</label>
+          <input type="text" name="title" class="form-control bg-black text-light border-secondary" placeholder="Judul post..." />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Silahkan yapping!</label>
+          <textarea name="content" class="form-control bg-black text-light border-secondary" placeholder="Apa yang kamu pikirkan?" rows="5"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Pap fotonya!</label>
+          <input type="file" name="image" class="form-control bg-black border-secondary" accept="image/*" />    
+          <small class="text-secondary">Format: JPG, JPEG, PNG</small>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Atau masukan URLnya!</label>
+          <input type="text" name="imageUrl" class="form-control bg-black text-light border-secondary" placeholder="URL gambar (opsional)" />
+        </div>
+
+        <button type="submit" class="btn btn-warning w-100 mt-3">Post!</button>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

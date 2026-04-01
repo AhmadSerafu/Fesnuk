@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fesnuk - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body class="bg-dark text-light">
+
+    <div class="container mt-5" style="max-width: 400px;">
+
+      <h1 class="text-warning fw-bold mb-4 display-2 text-center">Fesnuk</h1>
+
+      <% if (errorMessages) { %>
+        <div class="alert alert-danger text-danger" role="alert">
+         <%= errorMessages %>
+        </div>   
+      <% } %>
+
+      <form action="/auth/login" method="post">
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="example@email.com" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-warning w-100 mt-4">Login</button>
+      </form>
+
+      <p class="text-center mt-3">Belum punya akun? <a href="/auth/register" class="text-warning">Daftar di sini!</a></p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fesnuk - <%= post.title %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-dark text-light">
+    <%- include('./partials/navbar') %>
+
+    <div class="container" style="max-width: 1000px">
+        <div class="card mb-3 bg-black border-secondary" id="post-<%= post.id %>">
+          <div class="card-body">
+
+            <div class="d-flex align-items-center mb-2">
+            <% if (post.User.UserProfile && post.User.UserProfile.profilePicture) { %>
+              <img src="<%= post.User.UserProfile.profilePicture %>" 
+                class="rounded-circle me-2" 
+                width="32" height="32" 
+                alt="profile" />
+            <% } %>
+              <h6 class="mb-0 text-warning">@<%= post.User.username %></h6>
+            </div>
+
+            <h5 class="card-title text-light mt-1"><%= post.title %></h5>
+
+            <% if (post.content) { %>
+              <p class="card-text text-secondary"><%= post.content %></p>
+            <% } %>
+
+            <% if (post.imageUrl) { %>
+              <img src="<%= post.imageUrl %>" class="img-fluid rounded w-100 mb-2" alt="Post image" />
+            <% } %>
+
+            <small class="text-secondary">
+              <form action="/posts/<%= post.id %>/like" method="POST" class="d-inline">
+              <button type="submit" class="btn btn-sm p-0 border-0 bg-transparent text-secondary">
+              👍 <%= post.Likes.length %> Likes
+              </button>
+              </form>
+              <span class="text-secondary align-middle">💬 <%= post.Comments.length %> Komentar</span>
+            </small>
+
+            <form action="/posts/<%= post.id %>/comment" method="POST" class="mb-3">
+                <textarea name="content" class="form-control bg-dark text-light border-secondary mb-2 mt-2" placeholder="Tulis komentar..." rows="2"></textarea>
+                <% if(errorMessages) { %>
+                <small class="text-danger"> <%= errorMessages %> </small>
+                <% } %>
+                <button type="submit" class="btn btn-warning btn-sm fw-bold w-100 mt-2">Kirim</button>
+            </form>
+
+            <% if (post.Comments.length > 0) { %>
+              <hr class="border-secondary my-2"/>
+              <p class="mb-1 small fw-bold text-warning">Komentar</p>
+              <% post.Comments.forEach(comment => { %>
+                <div class="d-flex align-items-center mb-1">
+                <% if (comment.User.UserProfile && comment.User.UserProfile.profilePicture) { %>
+                    <img src="<%= comment.User.UserProfile.profilePicture %>" 
+                    class="rounded-circle me-2" 
+                    width="24" height="24"
+                    style="object-fit: cover;" />
+                <% } %>
+                    <span class="small text-warning">@<%= comment.User.username %></span>
+                </div>
+                <p class="mb-2 text-secondary small"><%= comment.content %></p>
+              <% }); %>
+            <% } %>
+
+
+          </div>
+        </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
