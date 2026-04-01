@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "UserId": 1,
+    "fullName": "Dawei CEO",
+    "bio": "Himeko's beloved",
+    "profilePicture": "https://upload-os-bbs.hoyolab.com/upload/2023/07/16/9970334/d4282b24082d22c589fe036f08622571_2680919101870637673.jpg"
+  },
+  {
+    "id": 2,
+    "UserId": 2,
+    "fullName": "Lumine Hotaru",
+    "bio": "Abyss Princess & Khaenri'ah Messiah",
+    "profilePicture": "https://upload-os-bbs.hoyolab.com/upload/2023/12/02/184785667/2ef7e473a2001c31b7ff64de2c50a586_618185699421398563.webp?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70"
+  },
+  {
+    "id": 3,
+    "UserId": 3,
+    "fullName": "Aether Sora",
+    "bio": "Traveller & Babu Archon. Adek gwe mana :'(",
+    "profilePicture": "https://i.pinimg.com/474x/74/81/d7/7481d7ffa70419a0f4582a7e4f56a5a5.jpg"
+  },
+  {
+    "id": 4,
+    "UserId": 4,
+    "fullName": "Akira Wise",
+    "bio": "Phaeton The Legendary Proxy, New Ridu Hottest Man",
+    "profilePicture": "https://upload-os-bbs.hoyolab.com/upload/2025/05/13/412312525/5c953accca019f55a5369f7615ca364c_2979834530296335083.webp"
+  },
+  {
+    "id": 5,
+    "UserId": 5,
+    "fullName": "Rin Belle",
+    "bio": "Phaeton The Legendary Proxy, Aku Furry",
+    "profilePicture": "https://i.redd.it/ervszipo96bd1.png"
+  },
+  {
+    "id": 6,
+    "UserId": 6,
+    "fullName": "Jutrzenka",
+    "bio": "cinta mati cho haseul",
+    "profilePicture": "https://pbs.twimg.com/profile_images/2025989555644690432/SZy3snum_400x400.jpg"
+  }
+]
