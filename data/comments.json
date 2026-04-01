@@ -1,0 +1,40 @@
+[
+  { "id": 1, "UserId": 2, "PostId": 1, "content": "Halu kokoh Dawei" },
+  {
+    "id": 2,
+    "UserId": 3,
+    "PostId": 1,
+    "content": "Manaada, Himeko istri gwejh >:("
+  },
+  {
+    "id": 3,
+    "UserId": 1,
+    "PostId": 2,
+    "content": "Kfunyh"
+  },
+  { "id": 4, "UserId": 4, "PostId": 2, "content": "kfunyh (2)" },
+  {
+    "id": 5,
+    "UserId": 1,
+    "PostId": 3,
+    "content": "Cek PM Bang!"
+  },
+  {
+    "id": 6,
+    "UserId": 5,
+    "PostId": 3,
+    "content": "200 angkut sini!"
+  },
+  {
+    "id": 7,
+    "UserId": 2,
+    "PostId": 4,
+    "content": "Kemaren perasaan udah jalan-jalan sama Foxy deh :O"
+  },
+  {
+    "id": 8,
+    "UserId": 3,
+    "PostId": 5,
+    "content": "Ingfokan aib-aibnya gan!"
+  }
+]

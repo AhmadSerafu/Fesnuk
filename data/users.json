@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "username": "ceo_dawei",
+    "email": "dawei@mail.com",
+    "password": "hashedpassword1",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "username": "lumine_hotaru",
+    "email": "lumine@mail.com",
+    "password": "hashedpassword2",
+    "role": "user"
+  },
+  {
+    "id": 3,
+    "username": "aether_sora",
+    "email": "aether@mail.com",
+    "password": "hashedpassword3",
+    "role": "user"
+  },
+  {
+    "id": 4,
+    "username": "akira_masbijak",
+    "email": "masbijak@mail.com",
+    "password": "hashedpassword4",
+    "role": "user"
+  },
+  {
+    "id": 5,
+    "username": "rin_belle",
+    "email": "belle@mail.com",
+    "password": "hashedpassword5",
+    "role": "user"
+  },
+  {
+    "id": 6,
+    "username": "zenka",
+    "email": "zenka@mail.com",
+    "password": "hashedpassword6",
+    "role": "user"
+  }
+]
