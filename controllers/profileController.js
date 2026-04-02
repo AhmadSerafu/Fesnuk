@@ -4,6 +4,7 @@ const { User, UserProfile } = require("../models/index");
 class ProfileController {
   static async profilePage(req, res) {
     try {
+      const { errorMessages } = req.query;
       const currentUser = await User.findByPk(req.session.userId, {
         include: [{ model: UserProfile }],
       });
@@ -16,6 +17,7 @@ class ProfileController {
       res.render("profilePage", {
         currentUser,
         username: req.session.username || null,
+        errorMessages,
       });
     } catch (error) {
       console.log(error);
@@ -47,8 +49,13 @@ class ProfileController {
 
       res.redirect("/profile");
     } catch (error) {
-      console.log(error);
-      res.send(error);
+      if (error.name === "SequelizeUniqueConstraintError") {
+        const errorMessages = "Username sudah digunakan!";
+        res.redirect("/profile?errorMessages=" + errorMessages);
+      } else {
+        console.log(error);
+        res.send(error);
+      }
     }
   }
 }
