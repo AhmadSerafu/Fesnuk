@@ -10,7 +10,7 @@
              width="32" height="32" 
              style="object-fit: cover;"/>
         <% } %>
-        <span class="text-warning">@<%= username %></span>
+        <a href="/profile" class="text-warning text-decoration-none fw-bold">@<%= username %></a>
         <a href="/auth/logout" class="btn btn-outline-warning btn-sm">Logout</a>
     </div>
      <% } else { %>

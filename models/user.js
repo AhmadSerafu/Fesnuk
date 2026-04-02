@@ -40,6 +40,16 @@ module.exports = (sequelize, DataTypes) => {
         as: "Following",
       });
     }
+
+    static async getUserList() {
+      const { UserProfile } = require("../models");
+
+      return await User.findAll({
+        where: { role: "user" },
+        include: [{ model: UserProfile }],
+        attributes: ["id", "username"],
+      });
+    }
   }
   User.init(
     {

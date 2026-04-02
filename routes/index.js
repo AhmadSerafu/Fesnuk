@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const authRouter = require("./authRouter");
 const postRouter = require("./postRouter");
+const profileRouter = require("./profileRouter");
 
 // router.get("/", (req, res) => {
 //   res.redirect("/auth/login");
@@ -15,5 +16,6 @@ router.get("/", (req, res) => {
 });
 router.use("/auth", authRouter);
 router.use("/posts", postRouter);
+router.use("/profile", profileRouter);
 
 module.exports = router;
