@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fesnuk - Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <%- include('./partials/head') %>
   </head>
   <body class="bg-dark text-light">
 
   <%- include('./partials/navbar') %>
 
-    <div class="container" style="max-width: 800px;">
-      <% posts.forEach(post => { %>
+    <div class="container" style="max-width: 900px;">
+      <form action="/posts" method="GET" class="mb-3">
+        <div class="input-group">
+          <input type="text" name="search" class="form-control bg-black text-light border-secondary" placeholder="Cari post..." value="<%= search %>"/>
+          <button type="submit" class="btn btn-warning">Cari</button>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-3 position-sticky" style="top: 100px; height: fit-content;">
+          <p class="text-warning fw-bold mb-3">Pengguna Fesnuk</p>
+          <% users.forEach(user => { %>
+          <div class="d-flex align-items-center mb-3">
+          <% if (user.UserProfile && user.UserProfile.profilePicture) { %>
+            <img src="<%= user.UserProfile.profilePicture %>"
+                 class="rounded-circle me-2"
+                 width="32" height="32"
+                 style="object-fit: cover;" />
+          <% } %>
+            <span class="text-secondary small">@<%= user.username %></span>
+          </div>
+          <% }); %>
+        </div>
+
+      <div class="col-9">
+        <% posts.forEach(post => { %>
         <div class="card mb-3 bg-black border-secondary" id="post-<%= post.id %>">
           <div class="card-body">
-
-            <div class="d-flex align-items-center mb-2">
+            <div class="d-flex align-items-center justify-content-between mb-2">
             <% if (post.User.UserProfile && post.User.UserProfile.profilePicture) { %>
               <img src="<%= post.User.UserProfile.profilePicture %>" 
                 class="rounded-circle me-2" 
                 width="32" height="32" 
                 alt="profile" />
             <% } %>
-              <h6 class="mb-0 text-warning">@<%= post.User.username %></h6>
+              <h6 class="mb-0 text-warning me-auto">@<%= post.User.username %></h6>
+               <% if (post.UserId === userId) { %>
+                <a href="/posts/<%= post.id %>/edit" class="text-warning text-decoration-none small mt-1">✎</a>
+              <% } %>
+              <% if (role === 'admin') { %>
+                <form action="/posts/<%= post.id %>/delete" method="POST" class="d-inline">
+                  <button type="submit" class="btn btn-sm p-0 border-0 bg-transparent text-danger ms-2 small">⛌</button>
+                </form>
+               <% } %>
             </div>
 
             <h5 class="card-title text-light mt-1"><%= post.title %></h5>
@@ -34,7 +61,9 @@
             <% if (post.imageUrl) { %>
               <img src="<%= post.imageUrl %>" class="img-fluid rounded w-100 mb-2" alt="Post image" />
             <% } %>
-
+              
+            <small class="text-secondary d-block mb-2"><%= post.createdDate %></small>
+            
             <small class="text-secondary">
               <form action="/posts/<%= post.id %>/like" method="POST" class="d-inline">
               <button type="submit" class="btn btn-sm p-0 border-0 bg-transparent text-secondary">
@@ -63,10 +92,11 @@
               <% }); %>
             <% } %>
 
-
           </div>
         </div>
-      <% }); %>
+        <% }); %>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+  </head>
+  <body class="bg-dark text-light">
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-5" style="max-width: 600px;">
+      <h1 class="fw-bold display-6 text-warning mb-4">Edit Post</h1>
+
+      <% if (errorMessages) { %>
+        <div class="alert alert-danger text-danger" role="alert">
+          <%= errorMessages %>
+        </div>
+      <% } %>
+
+      <form action="/posts/<%= post.id %>/edit" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label class="form-label">Judul</label>
+          <input type="text" name="title" class="form-control bg-black text-light border-secondary" value="<%= post.title %>" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Konten</label>
+          <textarea name="content" class="form-control bg-black text-light border-secondary" rows="5"><%= post.content || '' %></textarea>
+        </div>
+
+        <div class="mb-3">
+        <% if (post.imageUrl) { %>
+            <img src="<%= post.imageUrl %>" class="img-fluid rounded mt-2 d-block mx-auto mb-2" style="max-width: 200px;" />
+            <small class="text-secondary text-center d-block mb-2">Foto saat ini</small>
+        <% } %>
+
+          <label class="form-label">Ganti foto</label>
+          <input type="file" name="image" class="form-control bg-black border-secondary" accept="image/*" />
+          <small class="text-secondary">Format: JPG, JPEG, PNG</small>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-secondary small">Atau masukan URLnya!</label>
+          <input type="text" name="imageUrl" class="form-control bg-black text-light border-secondary" placeholder="URL gambar (opsional)" value="<%= post.imageUrl || '' %>" />
+        </div>
+
+        <button type="submit" class="btn btn-warning w-100 mt-3 mb-3">Simpan!</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+  </head>
+  <body class="bg-dark text-light">
+    <%- include('./partials/navbar') %>
+
+   <div class="container mt-4" style="max-width: 700px;">
+        <h1 class="text-warning fw-bold mb-4">Edit Profil</h1>
+
+        <div class="row">
+            <div class="col-4 text-center" style="margin-top: 2rem;">
+                <% if (currentUser.UserProfile && currentUser.UserProfile.profilePicture) { %>
+                <img src="<%= currentUser.UserProfile.profilePicture %>" class="rounded img-fluid mb-2" />
+                <% } else { %>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsVllhuihxEE1PsOUjQ_qS6VsgoC6rCOeTYg&s" class="rounded img-fluid mb-2" />
+                <small class="text-secondary">Ini defaultnya ↑</small>
+                <% } %>
+                <p class="text-warning mb-0">@<%= currentUser.username %></p>
+                <small class="text-secondary"><%= currentUser.UserProfile.fullName || '' %></small>
+            </div>
+
+            <div class="col-8">
+                <form action="/profile" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control bg-black text-light border-secondary" value="<%= currentUser.username %>"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="fullName" class="form-control bg-black text-light border-secondary" value="<%= currentUser.UserProfile.fullName || '' %>" placeholder="Nama lengkap..." />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Bio</label>
+                        <textarea name="bio" class="form-control bg-black text-light border-secondary" rows="3" placeholder="Ceritakan tentang dirimu..."><%= currentUser.UserProfile.bio || '' %></textarea>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Foto Profil</label>
+                        <input type="file" name="profilePicture" class="form-control bg-black border-secondary" accept="image/*" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-secondary">or</label>
+                        <input type="text" name="profilePicture" class="form-control bg-black text-light border-secondary" placeholder="URL foto profil..." value="<%= currentUser.UserProfile.profilePicture || '' %>" />
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100 mt-2">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

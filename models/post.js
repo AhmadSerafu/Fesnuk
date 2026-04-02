@@ -24,6 +24,30 @@ module.exports = (sequelize, DataTypes) => {
         as: "LikedBy",
       });
     }
+
+    get createdDate() {
+      const now = new Date();
+      const date = new Date(this.createdAt);
+
+      const dateString = date.toLocaleDateString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+
+      const diff = Math.floor((now - date) / 1000);
+
+      let moment = "";
+      if (diff < 60) moment = `${diff} detik yang lalu`;
+      else if (diff < 3600)
+        moment = `(${Math.floor(diff / 60)} menit yang lalu)`;
+      else if (diff < 86400)
+        moment = `(${Math.floor(diff / 3600)} jam yang lalu)`;
+      else if (diff < 2592000)
+        moment = `(${Math.floor(diff / 86400)} hari yang lalu)`;
+
+      return `Dibuat ${dateString} ${moment}`;
+    }
   }
   Post.init(
     {

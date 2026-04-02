@@ -40,6 +40,14 @@ module.exports = (sequelize, DataTypes) => {
             args: true,
             msg: "Tidak ada komentar yang dikirim!",
           },
+          noAbi(value) {
+            const words = value.toLowerCase().split(" ");
+            if (words.includes("abi")) {
+              throw new Error(
+                "Wajib menambahkan King didepan atau JS dibelakang abi!",
+              );
+            }
+          },
         },
       },
     },
