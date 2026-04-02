@@ -6,9 +6,16 @@
   <body class="bg-dark text-light">
     <%- include('./partials/navbar') %>
 
+   
+
    <div class="container mt-4" style="max-width: 700px;">
         <h1 class="text-warning fw-bold mb-4">Edit Profil</h1>
 
+        <% if (errorMessages) { %>
+        <div class="alert alert-danger text-danger" role="alert">
+            <%= errorMessages %>
+        </div>   
+        <% } %>
         <div class="row">
             <div class="col-4 text-center" style="margin-top: 2rem;">
                 <% if (currentUser.UserProfile && currentUser.UserProfile.profilePicture) { %>
