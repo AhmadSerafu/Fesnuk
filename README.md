@@ -1,7 +1,8 @@
 # Fesnuk 🌐
 
 Fesnuk adalah platform media sosial sederhana yang dibuat sebagai Pair Project. Pengguna dapat membuat postingan, memberikan komentar, menyukai postingan, dan mengelola profil mereka.
-![Fesnuk](./Screenshot 2026-04-02 082005.png)
+
+![Fesnuk](./Screenshot.png)
 
 ---
 
