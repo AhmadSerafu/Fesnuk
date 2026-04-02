@@ -105,3 +105,32 @@ Fesnuk/
 ├── views/
 └── app.js
 ```
+## Routes
+
+### Auth
+| Method | Route | Description |
+|---|---|---|
+| GET | /auth/login | Halaman login |
+| POST | /auth/login | Proses login |
+| GET | /auth/register | Halaman register |
+| POST | /auth/register | Proses register |
+| GET | /auth/logout | Proses logout |
+
+### Posts
+| Method | Route | Description |
+|---|---|---|
+| GET | /posts | Feed semua post |
+| GET | /posts/create | Halaman create post |
+| POST | /posts/create | Proses create post |
+| GET | /posts/:postId | Detail post |
+| GET | /posts/:postId/edit | Halaman edit post |
+| POST | /posts/:postId/edit | Proses edit post |
+| POST | /posts/:postId/delete | Proses delete post (admin) |
+| POST | /posts/:postId/like | Toggle like post |
+| POST | /posts/:postId/comment | Tambah komentar |
+
+### Profile
+| Method | Route | Description |
+|---|---|---|
+| GET | /profile | Halaman profil |
+| POST | /profile | Update profil |
