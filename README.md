@@ -75,9 +75,12 @@ Fesnuk adalah platform media sosial sederhana yang dibuat sebagai Pair Project. 
 
 | Username | Email | Password | Role |
 |---|---|---|---|
-| budi_santoso | budi@mail.com | password123 | Admin |
-| siti_rahayu | siti@mail.com | password123 | User |
-| andi_wijaya | andi@mail.com | password123 | User |
+| ceo_dawei | dawei@mail.com | hashedpassword1 | Admin |
+| lumine_hotaru | lumine@mail.com | hashedpassword2 | User |
+| aether_sora | aether@mail.com | hashedpassword3 | User |
+| akira_masbijak | masbijak@mail.com | hashedpassword4 | User |
+| rin_belle | belle@mail.com | hashedpassword5 | User |
+| zenka | zenka@mail.com | hashedpassword6 | User |
 
 ---
 
