@@ -86,7 +86,7 @@ Fesnuk adalah platform media sosial sederhana yang dibuat sebagai Pair Project. 
 
 ## ERD
 
-![ERD Fesnuk](./fesnuk-schema.drawio.png)
+![ERD Fesnuk](./fesnuk_schema.drawio.png)
 
 ---
 
